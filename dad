@@ -1,0 +1,23 @@
+[33mcommit 61a7f17d92b07d8061a9a3067fa594b18b72ddc2[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Jack Katzler <jack.katzler@gmail.com>
+Date:   Mon Apr 17 10:18:11 2023 +0200
+
+    Add initial set of files
+
+.env
+.gitignore
+bin/console
+composer.json
+composer.lock
+config/bundles.php
+config/packages/cache.yaml
+config/packages/framework.yaml
+config/packages/routing.yaml
+config/preload.php
+config/routes.yaml
+config/routes/framework.yaml
+config/services.yaml
+public/index.php
+src/Controller/.gitignore
+src/Kernel.php
+symfony.lock
