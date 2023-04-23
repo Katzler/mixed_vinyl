@@ -1,0 +1,9 @@
+<h1>{{ title }}</h1>
+
+{% for character in hardcoreCharacters %}
+<p>
+   Level: {{ character.characterLevel }} <br>
+    Class: {{ character.characterClass }} <br>
+    Still Alive? {{ character.isAlive }}
+</p>
+{% endfor %}

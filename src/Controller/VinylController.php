@@ -16,13 +16,32 @@ class VinylController extends AbstractController
             ['song' => 'Easier To Run', 'artist' => 'Linkin Park'],
             ['song' => 'Numb', 'artist' => 'Linkin Park'],
             ['song' => 'Jesus of Suburbia', 'artist' => 'Green Day'],
-            ['song' => 'Dark Side', 'artist' => 'Blind Channel']
+            ['song' => 'Dark Side', 'artist' => 'Blind Channel'],
+            ['song' => 'Boten Anna', 'artist' => 'Basshunter'],
+            ['song' => 'My Love', 'artist' => 'Westlife']
             ];
-
 
         return $this->render('vinyl/homepage.html.twig', [
             'title' => 'PBs & Jams',
             'tracks' => $tracks,
+        ]);
+    }
+
+    #[Route('/hardcore')]
+    public function hardcoreList(): Response
+    {
+        $hardcoreCharacters = [
+            ['characterLevel'=>'13', 'characterClass'=>'Warrior', 'isAlive'=>'No'],
+            ['characterLevel'=>'23', 'characterClass'=>'Warrior', 'isAlive'=>'No'],
+            ['characterLevel'=>'19', 'characterClass'=>'Warrior', 'isAlive'=>'No'],
+            ['characterLevel'=>'24', 'characterClass'=>'Hunter', 'isAlive'=>'No'],
+            ['characterLevel'=>'32', 'characterClass'=>'Paladin', 'isAlive'=>'Yes'],
+            ['characterLevel'=>'22', 'characterClass'=>'Warlock', 'isAlive'=>'Yes'],
+            ];
+
+        return $this->render('vinyl/hardcore.html.twig', [
+            'title' => 'My List of HC Chars',
+            'hardcoreCharacters' => $hardcoreCharacters
         ]);
     }
 
