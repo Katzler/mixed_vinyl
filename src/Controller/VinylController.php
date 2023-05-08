@@ -9,7 +9,7 @@ use function Symfony\Component\String\u;
 
 class VinylController extends AbstractController
 {
-    #[Route('/')]
+    #[Route('/', name: 'app_homepage')]
    public function homepage(): Response
     {
         $tracks = [
@@ -28,33 +28,14 @@ class VinylController extends AbstractController
         ]);
     }
 
-    #[Route('/hardcore')]
-    public function hardcoreList(): Response
-    {
-        $hardcoreCharacters = [
-            ['characterLevel'=>'13', 'characterClass'=>'Warrior', 'isAlive'=>'No'],
-            ['characterLevel'=>'23', 'characterClass'=>'Warrior', 'isAlive'=>'No'],
-            ['characterLevel'=>'19', 'characterClass'=>'Warrior', 'isAlive'=>'No'],
-            ['characterLevel'=>'24', 'characterClass'=>'Hunter', 'isAlive'=>'No'],
-            ['characterLevel'=>'32', 'characterClass'=>'Paladin', 'isAlive'=>'Yes'],
-            ['characterLevel'=>'22', 'characterClass'=>'Warlock', 'isAlive'=>'Yes'],
-            ];
-
-        return $this->render('vinyl/hardcore.html.twig', [
-            'title' => 'My List of HC Chars',
-            'hardcoreCharacters' => $hardcoreCharacters
-        ]);
-    }
-
-    #[Route('/browse/{slug}')]
+    #[Route('/browse/{slug}', name: 'app_browse')]
     public function browse(string $slug = null): Response
     {
-        if ($slug) {
-            $title = 'Genre: ' . u(str_replace("-", " ", $slug))->title(true);
-        } else {
-            $title = "All Genres";
-        }
-        return new Response($title);
+        $genre = $slug ? u(str_replace("-", " ", $slug))->title(true) : null;
+
+        return $this->render('vinyl/browse.html.twig', [
+            'genre' => $genre,
+        ]);
     }
 
 }
